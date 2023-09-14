@@ -1,3 +1,5 @@
+using SloCovidTracker.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<Covid19SledilnikService, Covid19SledilnikService>();
 
 var app = builder.Build();
 

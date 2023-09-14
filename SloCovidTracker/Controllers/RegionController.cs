@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SloCovidTracker.Models;
+using SloCovidTracker.ObjectMappers;
 using SloCovidTracker.Services;
 
 namespace SloCovidTracker.Controllers;
@@ -43,9 +44,17 @@ public class RegionController : ControllerBase
     public async Task<IEnumerable<CasesLastWeek>> GetLastWeek()
     {
         var dailyCases = await _covid19SledilnikService.GetData();
+        var dailyCasesByRegion = Covid19SledilnikToInternalMapper.DailyCasesListToDailyCasesByRegionList(dailyCases);
+
+        var currentDate = DateTime.ParseExact("2023-04-02", "yyyy-MM-dd", null);
+        var sevenDaysAgo = currentDate.AddDays(-7);
         
-        // var averageByCategory = dailyCases.GroupBy(cases => cases.)
-        
-        return Enumerable.Empty<CasesLastWeek>();
+        var averageByCategory = dailyCasesByRegion
+            .Where(cases => cases.Date.CompareTo(currentDate) == -1 && cases.Date.CompareTo(sevenDaysAgo) == 1)
+            .GroupBy(cases => cases.Region)
+            .Select(group => new CasesLastWeek(group.Key, group.Average(cases => cases.NrActiveCases)))
+            .OrderByDescending(cases => cases.NrCases);
+
+        return averageByCategory;
     }
 }
