@@ -1,17 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
 using SloCovidTracker.Models;
+using SloCovidTracker.Services;
 
 namespace SloCovidTracker.Controllers;
+
 
 [ApiController]
 [Route("api/[controller]")]
 public class RegionController : ControllerBase
 {
     private readonly ILogger<RegionController> _logger;
+    private readonly Covid19SledilnikService _covid19SledilnikService;
 
-    public RegionController(ILogger<RegionController> logger)
+    public RegionController(ILogger<RegionController> logger, Covid19SledilnikService covid19SledilnikService)
     {
         _logger = logger;
+        _covid19SledilnikService = covid19SledilnikService;
     }
 
     /// <summary>
@@ -22,8 +26,12 @@ public class RegionController : ControllerBase
     /// <param name="to"></param>
     /// <returns></returns>
     [HttpGet("Cases")]
-    public IEnumerable<DailyCasesByRegion> GetCases(List<string> regions, string from, string to)
+    public async Task<IEnumerable<DailyCasesByRegion>> GetCases(List<string> regions, string from, string to)
     {
+        var dailyCases = await _covid19SledilnikService.GetData();
+        
+        
+        
         return Enumerable.Empty<DailyCasesByRegion>();
     }
     
@@ -32,8 +40,12 @@ public class RegionController : ControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpGet("LastWeek")]
-    public IEnumerable<CasesLastWeek> GetLastWeek()
+    public async Task<IEnumerable<CasesLastWeek>> GetLastWeek()
     {
+        var dailyCases = await _covid19SledilnikService.GetData();
+        
+        // var averageByCategory = dailyCases.GroupBy(cases => cases.)
+        
         return Enumerable.Empty<CasesLastWeek>();
     }
 }
