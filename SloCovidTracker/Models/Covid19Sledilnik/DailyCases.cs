@@ -3,6 +3,89 @@ using CsvHelper.Configuration.Attributes;
 
 public class DailyCases
 {
+    public DailyCases(string date, int casesActiveCe, int casesConfirmedToDateCe, int deceasedToDateCe, int vaccinated1StToDateCe, int vaccinated2NdToDateCe, int vaccinated3RdToDateCe, int casesActiveForeign, int casesConfirmedToDateForeign, int deceasedToDateForeign, int casesActiveKk, int casesConfirmedToDateKk, int deceasedToDateKk, int vaccinated1StToDateKk, int vaccinated2NdToDateKk, int vaccinated3RdToDateKk, int casesActiveKp, int casesConfirmedToDateKp, int deceasedToDateKp, int vaccinated1StToDateKp, int vaccinated2NdToDateKp, int vaccinated3RdToDateKp, int casesActiveKr, int casesConfirmedToDateKr, int deceasedToDateKr, int vaccinated1StToDateKr, int vaccinated2NdToDateKr, int vaccinated3RdToDateKr, int casesActiveLj, int casesConfirmedToDateLj, int deceasedToDateLj, int vaccinated1StToDateLj, int vaccinated2NdToDateLj, int vaccinated3RdToDateLj, int casesActiveMb, int casesConfirmedToDateMb, int deceasedToDateMb, int vaccinated1StToDateMb, int vaccinated2NdToDateMb, int vaccinated3RdToDateMb, int casesActiveMs, int casesConfirmedToDateMs, int deceasedToDateMs, int vaccinated1StToDateMs, int vaccinated2NdToDateMs, int vaccinated3RdToDateMs, int casesActiveNg, int casesConfirmedToDateNg, int deceasedToDateNg, int vaccinated1StToDateNg, int vaccinated2NdToDateNg, int vaccinated3RdToDateNg, int casesActiveNm, int casesConfirmedToDateNm, int deceasedToDateNm, int vaccinated1StToDateNm, int vaccinated2NdToDateNm, int vaccinated3RdToDateNm, int casesActivePo, int casesConfirmedToDatePo, int deceasedToDatePo, int vaccinated1StToDatePo, int vaccinated2NdToDatePo, int vaccinated3RdToDatePo, int casesActiveSg, int casesConfirmedToDateSg, int deceasedToDateSg, int vaccinated1StToDateSg, int vaccinated2NdToDateSg, int vaccinated3RdToDateSg, int casesActiveUnknown, int casesConfirmedToDateUnknown, int deceasedToDateUnknown, int casesActiveZa, int casesConfirmedToDateZa, int deceasedToDateZa, int vaccinated1StToDateZa, int vaccinated2NdToDateZa, int vaccinated3RdToDateZa)
+    {
+        Date = date;
+        CasesActiveCE = casesActiveCe;
+        CasesConfirmedToDateCE = casesConfirmedToDateCe;
+        DeceasedToDateCE = deceasedToDateCe;
+        Vaccinated1stToDateCE = vaccinated1StToDateCe;
+        Vaccinated2ndToDateCE = vaccinated2NdToDateCe;
+        Vaccinated3rdToDateCE = vaccinated3RdToDateCe;
+        CasesActiveForeign = casesActiveForeign;
+        CasesConfirmedToDateForeign = casesConfirmedToDateForeign;
+        DeceasedToDateForeign = deceasedToDateForeign;
+        CasesActiveKK = casesActiveKk;
+        CasesConfirmedToDateKK = casesConfirmedToDateKk;
+        DeceasedToDateKK = deceasedToDateKk;
+        Vaccinated1stToDateKK = vaccinated1StToDateKk;
+        Vaccinated2ndToDateKK = vaccinated2NdToDateKk;
+        Vaccinated3rdToDateKK = vaccinated3RdToDateKk;
+        CasesActiveKP = casesActiveKp;
+        CasesConfirmedToDateKP = casesConfirmedToDateKp;
+        DeceasedToDateKP = deceasedToDateKp;
+        Vaccinated1stToDateKP = vaccinated1StToDateKp;
+        Vaccinated2ndToDateKP = vaccinated2NdToDateKp;
+        Vaccinated3rdToDateKP = vaccinated3RdToDateKp;
+        CasesActiveKR = casesActiveKr;
+        CasesConfirmedToDateKR = casesConfirmedToDateKr;
+        DeceasedToDateKR = deceasedToDateKr;
+        Vaccinated1stToDateKR = vaccinated1StToDateKr;
+        Vaccinated2ndToDateKR = vaccinated2NdToDateKr;
+        Vaccinated3rdToDateKR = vaccinated3RdToDateKr;
+        CasesActiveLJ = casesActiveLj;
+        CasesConfirmedToDateLJ = casesConfirmedToDateLj;
+        DeceasedToDateLJ = deceasedToDateLj;
+        Vaccinated1stToDateLJ = vaccinated1StToDateLj;
+        Vaccinated2ndToDateLJ = vaccinated2NdToDateLj;
+        Vaccinated3rdToDateLJ = vaccinated3RdToDateLj;
+        CasesActiveMB = casesActiveMb;
+        CasesConfirmedToDateMB = casesConfirmedToDateMb;
+        DeceasedToDateMB = deceasedToDateMb;
+        Vaccinated1stToDateMB = vaccinated1StToDateMb;
+        Vaccinated2ndToDateMB = vaccinated2NdToDateMb;
+        Vaccinated3rdToDateMB = vaccinated3RdToDateMb;
+        CasesActiveMS = casesActiveMs;
+        CasesConfirmedToDateMS = casesConfirmedToDateMs;
+        DeceasedToDateMS = deceasedToDateMs;
+        Vaccinated1stToDateMS = vaccinated1StToDateMs;
+        Vaccinated2ndToDateMS = vaccinated2NdToDateMs;
+        Vaccinated3rdToDateMS = vaccinated3RdToDateMs;
+        CasesActiveNG = casesActiveNg;
+        CasesConfirmedToDateNG = casesConfirmedToDateNg;
+        DeceasedToDateNG = deceasedToDateNg;
+        Vaccinated1stToDateNG = vaccinated1StToDateNg;
+        Vaccinated2ndToDateNG = vaccinated2NdToDateNg;
+        Vaccinated3rdToDateNG = vaccinated3RdToDateNg;
+        CasesActiveNM = casesActiveNm;
+        CasesConfirmedToDateNM = casesConfirmedToDateNm;
+        DeceasedToDateNM = deceasedToDateNm;
+        Vaccinated1stToDateNM = vaccinated1StToDateNm;
+        Vaccinated2ndToDateNM = vaccinated2NdToDateNm;
+        Vaccinated3rdToDateNM = vaccinated3RdToDateNm;
+        CasesActivePO = casesActivePo;
+        CasesConfirmedToDatePO = casesConfirmedToDatePo;
+        DeceasedToDatePO = deceasedToDatePo;
+        Vaccinated1stToDatePO = vaccinated1StToDatePo;
+        Vaccinated2ndToDatePO = vaccinated2NdToDatePo;
+        Vaccinated3rdToDatePO = vaccinated3RdToDatePo;
+        CasesActiveSG = casesActiveSg;
+        CasesConfirmedToDateSG = casesConfirmedToDateSg;
+        DeceasedToDateSG = deceasedToDateSg;
+        Vaccinated1stToDateSG = vaccinated1StToDateSg;
+        Vaccinated2ndToDateSG = vaccinated2NdToDateSg;
+        Vaccinated3rdToDateSG = vaccinated3RdToDateSg;
+        CasesActiveUnknown = casesActiveUnknown;
+        CasesConfirmedToDateUnknown = casesConfirmedToDateUnknown;
+        DeceasedToDateUnknown = deceasedToDateUnknown;
+        CasesActiveZA = casesActiveZa;
+        CasesConfirmedToDateZA = casesConfirmedToDateZa;
+        DeceasedToDateZA = deceasedToDateZa;
+        Vaccinated1stToDateZA = vaccinated1StToDateZa;
+        Vaccinated2ndToDateZA = vaccinated2NdToDateZa;
+        Vaccinated3rdToDateZA = vaccinated3RdToDateZa;
+    }
+
     [Name("date")]
     public string Date { get; }
 

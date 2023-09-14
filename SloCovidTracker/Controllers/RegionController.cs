@@ -21,8 +21,8 @@ public class RegionController : ControllerBase
     }
     
     [HttpGet("LastWeek")]
-    public IEnumerable<KeyValuePair<string, int>> GetLastWeek()
+    public IEnumerable<CasesLastWeek> GetLastWeek()
     {
-        return Enumerable.Empty<KeyValuePair<string, int>>();
+        return Enumerable.Empty<CasesLastWeek>();
     }
 }
