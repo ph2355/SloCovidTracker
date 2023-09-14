@@ -14,4 +14,20 @@ public static class Regions
     public static readonly string PO = "PO";
     public static readonly string SG = "SG";
     public static readonly string ZA = "ZA";
+
+    public static bool IsValid(string region)
+    {
+        return region.Equals(LJ)
+               || region.Equals(CE)
+               || region.Equals(KR)
+               || region.Equals(NM)
+               || region.Equals(KK)
+               || region.Equals(KP)
+               || region.Equals(MB)
+               || region.Equals(MS)
+               || region.Equals(NG)
+               || region.Equals(PO)
+               || region.Equals(SG)
+               || region.Equals(ZA);
+    }
 }

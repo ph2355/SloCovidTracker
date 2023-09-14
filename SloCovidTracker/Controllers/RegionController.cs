@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using SloCovidTracker.Models;
 using SloCovidTracker.ObjectMappers;
@@ -27,13 +28,48 @@ public class RegionController : ControllerBase
     /// <param name="to"></param>
     /// <returns></returns>
     [HttpGet("Cases")]
-    public async Task<IEnumerable<DailyCasesByRegion>> GetCases(List<string> regions, string from, string to)
+    public async Task<IEnumerable<DailyCasesByRegion>> GetCases([FromQuery] List<string>? regions, string? from, string? to)
     {
         var dailyCases = await _covid19SledilnikService.GetData();
+        var dailyCasesByRegion = Covid19SledilnikToInternalMapper.DailyCasesListToDailyCasesByRegionList(dailyCases);
+
+        // check if regions are valid
+        var regionsValid = regions?.All(region => Regions.IsValid(region));
+        if (regionsValid.HasValue && !regionsValid.Value)
+        {
+            // TODO should return error
+            return Enumerable.Empty<DailyCasesByRegion>();
+        }
+
+        DateTime? fromDateTime = null;
+        DateTime? toDateTime = null;
         
-        
-        
-        return Enumerable.Empty<DailyCasesByRegion>();
+        // check if from date valid
+        if (from != null)
+        {
+            if (!DateTime.TryParseExact(from, "yyyy-MM-dd", null, DateTimeStyles.None, out DateTime parsedDate))
+            {
+                // TODO should return error
+                return Enumerable.Empty<DailyCasesByRegion>();
+            }
+            fromDateTime = parsedDate;
+        }
+
+        // check if to date valid
+        if (to != null)
+        {
+            if (!DateTime.TryParseExact(to, "yyyy-MM-dd", null, DateTimeStyles.None, out DateTime parsedDate))
+            {
+                // TODO should return error
+                return Enumerable.Empty<DailyCasesByRegion>();
+            }
+            toDateTime = parsedDate;
+        }
+
+        return dailyCasesByRegion
+            .Where(cases => regions == null || regions.Contains(cases.Region))
+            .Where(cases => fromDateTime == null || cases.Date.CompareTo(fromDateTime) >= 0)
+            .Where(cases => toDateTime == null || cases.Date.CompareTo(toDateTime) <= 0);
     }
     
     /// <summary>
